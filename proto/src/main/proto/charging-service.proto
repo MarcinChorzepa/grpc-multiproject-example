@@ -1,0 +1,38 @@
+syntax="proto3";
+
+option java_package="com.emobility.proto";
+option java_multiple_files=true;
+
+
+message ChargingRequest {
+  string userId=1;
+}
+
+message ChargingResponse {
+  string chargingId=1;
+  string userId=2;
+  ChargingType chargingType=3;
+  int64 kWh=4;
+}
+
+message AddChargingRequest {
+  string userId=1;
+  ChargingType chargingType=2;
+  int64 kWh=3;
+}
+
+enum ChargingType {
+  MOBILE=0;
+  RFID=1;
+  OTP=2;
+}
+
+message ChargingResponses {
+  repeated ChargingResponse chargingList =1;
+}
+
+service ChargingService {
+  rpc getChargingByUserId(ChargingRequest) returns (ChargingResponses){};
+  rpc getChargingStreamByUserId(ChargingRequest) returns (stream ChargingResponse){};
+  rpc addCharging(stream AddChargingRequest) returns (ChargingResponses){};
+}

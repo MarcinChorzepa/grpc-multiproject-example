@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    defer-datasource-initialization: true
+
+grpc:
+  server:
+    port: 6565
+    security:
+      enabled: true
+      certificate-chain: file:certificates/server.crt
+      private-key: file:certificates/server.key
+      client-auth: require
+      trust-cert-collection: file:certificates/trusted-clients.crt.collection

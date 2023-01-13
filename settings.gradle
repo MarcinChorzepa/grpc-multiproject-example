@@ -1,0 +1,6 @@
+rootProject.name = 'grpc-multiproject-example'
+include 'proto'
+include 'order-service'
+include 'charging-service'
+include 'mobile-api'
+

@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.emobility'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+grpc:
+  client:
+    order-service:
+      address: static://localhost:6565
+      negotiationType: TLS
+      security:
+        client-auth-enabled: true
+        certificate-chain: file:certificates/server.crt
+        private-key: file:certificates/server.key
+        trust-cert-collection: file:certificates/trusted-clients.crt.collection
+    charging-service:
+      address: static://localhost:7575
+      negotiationType: plaintext

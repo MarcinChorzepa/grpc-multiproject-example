@@ -1,0 +1,7 @@
+id,user_id,kwh,charging_type
+1,user1,1200,OTP
+2,user1,300,MOBILE
+3,user2,450,RFID
+4,user3,1100,MOBILE
+5,user2,200,MOBILE
+6,user1,300,OTP

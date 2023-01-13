@@ -1,0 +1,24 @@
+syntax="proto3";
+
+option java_package="com.emobility.proto";
+option java_multiple_files=true;
+
+message OrderRequest {
+  string orderId=1;
+}
+
+message OrderResponse {
+  string orderId=1;
+  string userId=2;
+  OrderType orderType=3;
+  int64 amount=4;
+}
+
+enum OrderType {
+  PAID=0;
+  FREE=1;
+}
+
+service OrderService {
+  rpc getOrderById(OrderRequest) returns (OrderResponse){};
+}

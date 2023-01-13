@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.7'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group 'com.emobility.order'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.7'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.7'
+
+    runtimeOnly 'com.h2database:h2:2.1.214'
+
+    implementation project(path: ':proto')
+
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '3.21.12'
+
+    // https://mvnrepository.com/artifact/net.devh/grpc-server-spring-boot-starter
+
+    implementation group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: '2.14.0.RELEASE'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+}
+
+
+
+test {
+    useJUnitPlatform()
+}
